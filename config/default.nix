@@ -4,6 +4,5 @@
     ./options.nix
     ./keymaps.nix
     ./plugins
-    ./lsp.nix
   ];
 }
