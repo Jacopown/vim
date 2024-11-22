@@ -1,5 +1,5 @@
 { lib, inputs, pkgs, config, ...}:
-
+#TODO add colors and icons
 {
   plugins.cmp = {
     enable = true;
@@ -10,7 +10,11 @@
         { name = "luasnip"; }
         { name = "buffer"; }
       ];
-      # window.completition.border = [];
+      view.entries = {
+        name = "custom";
+        selection_order = "near_cursor";
+        };
+      window.completion.border = "rounded";
       mapping = {
         "<CR>" = ''
           cmp.mapping({
