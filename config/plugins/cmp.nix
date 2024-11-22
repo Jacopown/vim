@@ -1,13 +1,14 @@
 { lib, inputs, pkgs, config, ...}:
 #TODO add colors and icons
 {
+  plugins.luasnip.enable = true; #Snippet engine
   plugins.cmp = {
     enable = true;
     autoEnableSources = true;
     settings = { 
       sources = [
         { name = "path"; }
-        { name = "luasnip"; }
+        { name = "luasnip"; } #Adapter for luasnip snippet engine to cmp
         { name = "buffer"; }
       ];
       view.entries = {
