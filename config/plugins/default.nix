@@ -7,5 +7,7 @@
     ./treesitter.nix
     ./nvim-ufo.nix
     ./cmp.nix
+    ./lualine.nix
+    ./lsp.nix
   ];
 }
