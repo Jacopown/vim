@@ -3,22 +3,37 @@
   plugins.lualine = {
     enable = true;
     settings = {
+      options = {
+        component_separators = "";
+        section_separators = {
+          left = "";
+          right = "";
+        };
+      };
       sections = {
         lualine_a = [
-          "mode"
-        ];
+          {
+            __unkeyed = "mode";
+            separator.left = "";
+            padding.right = 1;
+          }
+        ];        
         lualine_b = [
-          "filename"
+          # "filename"
           "branch"
         ];
-        lualine_c = [];
-        lualine_x = [];
+        lualine_c = [ "" ];
+        lualine_x = [ "" ];
         lualine_y = [ 
           "filetype"
-          "progress"
+          # "progress"
         ];
         lualine_z = [
-          "location"
+          {
+            __unkeyed = "location";
+            separator.right = "";
+            padding.left = 1;
+          }
         ];
       };
     };
