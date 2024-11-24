@@ -9,5 +9,6 @@
     ./cmp.nix
     ./lualine.nix
     ./lsp.nix
+    ./autopairs.nix
   ];
 }
