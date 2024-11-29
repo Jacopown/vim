@@ -1,6 +1,9 @@
 { lib, inputs, pkgs, config, ...}:
 
 {
-  plugins.web-devicons.enable = true;
-  plugins.ccc.enable = true;
+  plugins = {
+    web-devicons.enable = true;
+    ccc.enable = true;
+    comment.enable = true;
+  };
 }
