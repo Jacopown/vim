@@ -20,8 +20,7 @@
         "aarch64-darwin"
       ];
 
-      perSystem =
-        { pkgs, system, ... }:
+      perSystem = { pkgs, system, ... }:
         let
           nixvimLib = nixvim.lib.${system};
           nixvim' = nixvim.legacyPackages.${system};
@@ -29,22 +28,25 @@
             inherit pkgs;
             module = import ./config; # import the module directly
             # You can use `extraSpecialArgs` to pass additional arguments to your module files
-            extraSpecialArgs = {
-              # inherit (inputs) foo;
-            };
+            /* extraSpecialArgs = {
+              inherit (inputs) foo;
+            }; */
           };
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
-          checks = {
-            # Run `nix flake check .` to verify that your config is not broken
-            default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+          # Lets you run `nix run .` to start nixvim
+          packages.default = nvim;
+
+          # Expose a default app for nix run
+          apps.default = flake-parts.lib.mkApp {
+            drv = nvim;
+            description = "Launch Nixvim with your custom configuration.";
           };
 
-          packages = {
-            # Lets you run `nix run .` to start nixvim
-            default = nvim;
-          };
+          # Run `nix flake check .` to verify that your config is not broken
+          checks.default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+
         };
     };
 }
