@@ -4,7 +4,11 @@ plugins.lsp = {
     enable = true;
     inlayHints = true;
     servers = {
-      nil_ls.enable = true;
+      nixd = {
+        enable = true;
+        settings.formatting.command = [ "nixfmt-rfc-style" ];
+      };
+      pyright.enable = true;
     };
     keymaps.lspBuf = {
       gD = "declaration";  
