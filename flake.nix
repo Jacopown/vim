@@ -38,12 +38,6 @@
           # Lets you run `nix run .` to start nixvim
           packages.default = nvim;
 
-          # Expose a default app for nix run
-          apps.default = flake-parts.lib.mkApp {
-            drv = nvim;
-            description = "Launch Nixvim with your custom configuration.";
-          };
-
           # Run `nix flake check .` to verify that your config is not broken
           checks.default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
 
