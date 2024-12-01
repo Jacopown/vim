@@ -92,7 +92,7 @@
     {
       mode = "v";
       key = "<";
-      action = ":<gv";
+      action = "<gv";
       options = {
         silent = true;
         desc = "Keep selection when changing indentation to selection";
@@ -101,7 +101,7 @@
     {
       mode = "v";
       key = ">";
-      action = ":>gv";
+      action = ">gv";
       options = {
         silent = true;
         desc = "Keep selection when changing indentation to selection";
