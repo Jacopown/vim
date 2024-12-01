@@ -1,5 +1,10 @@
-{ lib, inputs, pkgs, config, ...}:
 {
+  lib,
+  inputs,
+  pkgs,
+  config,
+  ...
+}: {
   clipboard = {
     register = "unnamedplus";
     providers = {
@@ -7,7 +12,7 @@
       xclip.enable = true;
     };
   };
-  opts = {
+        opts = {
     backup = false;
     cursorline = true;
     hlsearch = true;
@@ -33,6 +38,7 @@
     wrap = true;
     scrolloff = 8;
   };
+  extraConfigLua = ''vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]'';
   colorschemes.catppuccin = {
     enable = true;
     settings.flavour = "frappe";

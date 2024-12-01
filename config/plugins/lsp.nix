@@ -1,28 +1,27 @@
 { lib, inputs, pkgs, config, ...}:
 {
-plugins.lsp = {
-    enable = true;
-    inlayHints = true;
-    servers = {
-      nixd = {
-        enable = true;
-        settings.formatting.command = [ "nixfmt-rfc-style" ];
+  plugins = {
+    lsp = {
+      enable = true;
+      inlayHints = true;
+      servers = {
+        nixd = {
+          enable = true;
+          settings.formatting.command = [ "nixfmt-rfc-style" ];
+        };
+        pyright.enable = true;
       };
-      pyright.enable = true;
+      keymaps.lspBuf = {
+        gD = "declaration";  
+        gd = "definition";
+        gi = "implementation";
+        gr = "references";
+      };
     };
-    keymaps.lspBuf = {
-      gD = "declaration";  
-      gd = "definition";
-      gi = "implementation";
-      gr = "references";
+    lsp-format.enable = true;
+    none-ls = {
+      enable = true;
+      sources.formatting.alejandra.enable = true;
     };
   };
-  # plugins.conform-nvim = {
-  #   enable = true;
-  #   settings = {
-  #     formatters_by_ft = {
-  #       nix = [ "nil_ls" ];
-  #     };
-  #   };
-  # };
 }
