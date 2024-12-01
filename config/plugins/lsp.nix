@@ -22,7 +22,7 @@
     none-ls = {
       enable = true;
       sources.formatting.alejandra.enable = true;
-      sources.formatting.pyink.enable = true;
+      sources.formatting.black.enable = true;
     };
   };
 }
