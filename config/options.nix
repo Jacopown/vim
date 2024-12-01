@@ -12,7 +12,7 @@
       xclip.enable = true;
     };
   };
-        opts = {
+  opts = {
     backup = false;
     cursorline = true;
     hlsearch = true;
@@ -38,7 +38,7 @@
     wrap = true;
     scrolloff = 8;
   };
-  extraConfigLua = ''vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]'';
+  # extraConfigLua = ''vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]''; #TODO Make this work for format on save
   colorschemes.catppuccin = {
     enable = true;
     settings.flavour = "frappe";
